@@ -1,0 +1,19 @@
+﻿@page "/"
+
+@inject HttpClient Http
+
+<button @onclick="Click">Test</button>
+
+@code {
+    async Task Click()
+    {
+        try
+        {
+            await Http.GetFromJsonAsync<object>("WeatherForecast");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+    }
+}
